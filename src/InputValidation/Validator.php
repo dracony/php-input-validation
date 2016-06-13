@@ -242,7 +242,7 @@ class Validator
      */
     public function validateRegex($key, $def, $value)
     {
-        if (is_scalar($value) && isset($def['regex']) && !empty($value) && !preg_match($def['regex'], $value)) {
+        if (is_scalar($value) && isset($def['regex']) && !empty($value) && !preg_match('#'.$def['regex'].'#', $value)) {
             $this->addError($key, 'form.value_not_valid_regex');
         }
     }
